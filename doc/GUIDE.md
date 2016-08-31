@@ -32,11 +32,107 @@ Například:
 
 `gradle javadoc`
 
+
+####build.gradle
+Jedná se o základní konfigurační soubor Gradlu. Nachází se v rootu našeho projektu.
+
+Náš build script vypadá v základu následovně:
+
+```groovy
+buildscript {
+	ext {
+		springBootVersion = '1.4.0.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+```
+*V části buildScript je kofigurace pro samotný Gradle.*
+
+```groovy
+apply plugin: 'java'
+apply plugin: 'spring-boot'
+apply plugin:  'idea'
+```
+
+*Aplikování pluginů (viz níže).*
+
+
+```groovy
+jar {
+	baseName = 'compler'
+	version = '0.0.1-SNAPSHOT'
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+```
+
+*Parametry vygenerovaného JAR filu a proměnné určující s jakou verzí Javy je projekt kompatibilní.*
+
+```groovy
+repositories {
+	mavenCentral()
+}
+```
+
+*Centrální repozitáře, z kterých se stahují závislosti. Můžeme to chápat jako URL.*
+
+
+```groovy
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter')
+	compile("org.springframework:spring-web")
+	compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+```
+
+*Definice závislostí (viz níže).*
+
+
+
 ####Správa závislostí
 
+V podstatě každý projekt je závislý na externích knihovnách. Proč bychom například psali vlastní JDBC driver? Obecně je velkou výhodou Javy její ohromný ekosystém.
+Existují tisíte knihoven a je tedy dost pravděpodobné, že pokud nepotřebujeme nějak zvlášť atypickou funkcionalitu, někdo ji už napsal.
+V dřevních dobách bylo nutné stahovat JAR soubory (knihovny) a ručně je přidávat do projektu. Takový postup moc dobrý a přináší s sebou spoutu problémů jako například správa verzí daných knihoven.
+Gradle zachoval konvence Mavenu. 
+Každý projekt je jednoznačně identifikován skupinou (group), jménem (name) a verzí (version\). 
+
+Přidání závisloti build.gradle vypadá následovně:
+
+```groovy
+dependencies {
+    compile group: 'org.hibernate', name: 'hibernate-core', version: '3.6.7.Final'
+ }
+```
+
+Zápis může být zkrácen do formátu "group: name: version".
+
+
+```groovy
+dependencies {
+    compile 'org.hibernate:hibernate-core:3.6.7.Final'
+ }`
+```
+
+#### Životní cyklus aplikace
+Aplikace se během vývoje nachází v různých stavech. Například fáze kompilace je jiná než fáze testováná. Množinu těchto fází nazýváme Životním cyklem (Life cycle). 
+Fáze životního cyklu je důležitá právě pro závislosti. Slovo před popisem závislosti nám říká, v jaké fázi je závislo potřeba. Fáze jsou následující:
+
+* **Compile (compile)** - závislot je vyžadována při kompilaci
+* **Runtime (runtime)** - závislot je vyžadována za běhu aplikace
+* **Test Compile (testCompile)** - závislost je vyžadována při kompilaci testů
+* **Test Runtime (testRuntime)** - závislost je vyžadována za běhu testů
 
 #### Tasky a pluginy
-
+**Task** je operace nad projektem. Například kompilace nebo buildování jsou tasky. Gradle nám umožňuje definovat vlastní tasky a závislosti mezi nimi. Můžeme tedy například napsat task, který nám vytvoří požadovanou adresářovou strukturu.
+Množina tasků se nazývá **plugin**. Napříkal java plugin nám zajistí standardní tasky potřebné pro vývoj nad Javou (kompilace, clean, javadoc ...)
+My používáme plugin spring-boot, díky němuž můžeme použít task bootRun.
 
 ### Zprovoznění projektu v IntelliJ IDEA
 
@@ -67,3 +163,5 @@ Gradle JVM je cesta k JDK. Použijeme nejnovější stabilní verzi.
    Výpis konzole má dva módy - grafický a textový. Žádoucí je textový mód, na který se přepneme ikonkou v pravo nahoře. (viz obrázek)
 
 ![](images/gradle_idea.png)
+
+8) Zapneme podporu pro Git. V IDEA zvolíme VCS | Enable Version Control Integration a vybereme Git
