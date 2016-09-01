@@ -162,7 +162,7 @@ Gradle JVM je cesta k JDK. Použijeme nejnovější stabilní verzi.
 7) Dole v záložce Run bychom měli vidět výpis logu.
    Výpis konzole má dva módy - grafický a textový. Žádoucí je textový mód, na který se přepneme ikonkou v pravo nahoře. (viz obrázek)
 
-![](images/gradle_idea.png)
+![](images/run_idea.jpg)
 
 8) Zapneme podporu pro Git. V IDEA zvolíme VCS | Enable Version Control Integration a vybereme Git
 
@@ -170,13 +170,6 @@ Gradle JVM je cesta k JDK. Použijeme nejnovější stabilní verzi.
 ### Struktura projektu
 Struktura pojektu se řídí standardní Gradlovskou konvencí.
 
-- .gradle = pomocné soubory Gradlu
-- .idea = pomocné soubory IDEA
--  
-- doc (dodatečně přidáno) = dokumentační soubory a obrázky
-- gradle = binárka Gradle wrapperu
-- src 
-    
 ```
     +--.gradle = pomocné soubory Gradlu
     +--.idea = pomocné soubory IDEA
@@ -190,4 +183,5 @@ Struktura pojektu se řídí standardní Gradlovskou konvencí.
     |  +--test
     |  |  +--java
     |  |  +--resources
+    
 ```
