@@ -66,4 +66,4 @@ Gradle JVM je cesta k JDK. Použijeme nejnovější stabilní verzi.
 7) Dole v záložce Run bychom měli vidět výpis logu.
    Výpis konzole má dva módy - grafický a textový. Žádoucí je textový mód, na který se přepneme ikonkou v pravo nahoře. (viz obrázek)
 
-![](images/gradle_idea.png)
+![](images/run_idea.jpg)
