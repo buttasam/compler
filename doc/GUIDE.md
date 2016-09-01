@@ -165,3 +165,29 @@ Gradle JVM je cesta k JDK. Použijeme nejnovější stabilní verzi.
 ![](images/gradle_idea.png)
 
 8) Zapneme podporu pro Git. V IDEA zvolíme VCS | Enable Version Control Integration a vybereme Git
+
+
+### Struktura projektu
+Struktura pojektu se řídí standardní Gradlovskou konvencí.
+
+- .gradle = pomocné soubory Gradlu
+- .idea = pomocné soubory IDEA
+-  
+- doc (dodatečně přidáno) = dokumentační soubory a obrázky
+- gradle = binárka Gradle wrapperu
+- src 
+    
+```
+    +--.gradle = pomocné soubory Gradlu
+    +--.idea = pomocné soubory IDEA
+    +--build
+    +--doc (dodatečně přidáno) = dokumentační soubory a obrázky
+    +--gradle = binárka Gradle wrapperu
+    +---src = zrojové kódy
+    |  +--main
+    |  |  +--java
+    |  |  +--resources
+    |  +--test
+    |  |  +--java
+    |  |  +--resources
+```
