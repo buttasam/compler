@@ -185,3 +185,39 @@ Struktura pojektu se řídí standardní Gradlovskou konvencí.
     |  |  +--resources
     
 ```
+
+## Spring
+
+Spring je Javovský framework pro tvorbu Enterprise (rozumějme rozsáhlé) aplikací.
+
+Proč framework?
+* Nemusíme znovu objevovat kolo a můžeme se soustředit na unikátnost naší aplikace.
+* Framework se stará o spoustu věcí za nás. (Secuity, DI)
+* Framework je vyvíjen komunitou, vývoj vlastního frameworku je velmi nákladný.
+
+### Spring Boot
+Konfigurace Java apikací je relativně náročná. Starší projekty si zpravidla s sebou nesou různé konfigurační XML soubory. 
+Moderní způsob konfigurace je pomocí anotovaných tříd. Konfigurace je přesto zůstává složitá. Proto vznikl Spring boot.
+Jedná se sadu nástrojů (například anotací), která nám dovolí postavit samostatně běžící aplikaci s minimální konfigurací.
+
+Proč Spring Boot?
+* vytvoří samostatně běžící aplikaci
+* automaticky přidá k našemu projektu aplikační server (Tomcat, Jetty nebo Undertow), není tedy třeba deploy WAR souboru
+* automaticky konfiguruje Spring, ale nechává možnost jakékoliv výchozí nastavení změnit
+* není potřeba generování žádného kódu nebo externích XML souborů
+
+### Základní popis kódu
+
+###Jak psát
+
+### Dependency injection
+
+### Komponenty a služby
+
+### Přidání knihovny
+
+## Databáze
+
+#### ORM
+#### Entity
+#### Repozitáře
