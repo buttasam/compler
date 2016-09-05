@@ -99,11 +99,11 @@ dependencies {
 
 V podstatě každý projekt je závislý na externích knihovnách. Proč bychom například psali vlastní JDBC driver? Obecně je velkou výhodou Javy její ohromný ekosystém.
 Existují tisíte knihoven a je tedy dost pravděpodobné, že pokud nepotřebujeme nějak zvlášť atypickou funkcionalitu, někdo ji už napsal.
-V dřevních dobách bylo nutné stahovat JAR soubory (knihovny) a ručně je přidávat do projektu. Takový postup moc dobrý a přináší s sebou spoutu problémů jako například správa verzí daných knihoven.
+V dřevních dobách bylo nutné stahovat JAR soubory (knihovny) a ručně je přidávat do projektu. Takový postup moc dobrý není a přináší s sebou spoustu problémů jako například správa verzí daných knihoven.
 Gradle zachoval konvence Mavenu. 
 Každý projekt je jednoznačně identifikován skupinou (group), jménem (name) a verzí (version\). 
 
-Přidání závisloti build.gradle vypadá následovně:
+Přidání závislost build.gradle vypadá následovně:
 
 ```groovy
 dependencies {
@@ -131,7 +131,7 @@ Fáze životního cyklu je důležitá právě pro závislosti. Slovo před popi
 
 #### Tasky a pluginy
 **Task** je operace nad projektem. Například kompilace nebo buildování jsou tasky. Gradle nám umožňuje definovat vlastní tasky a závislosti mezi nimi. Můžeme tedy například napsat task, který nám vytvoří požadovanou adresářovou strukturu.
-Množina tasků se nazývá **plugin**. Napříkal java plugin nám zajistí standardní tasky potřebné pro vývoj nad Javou (kompilace, clean, javadoc ...)
+Množina tasků se nazývá **plugin**. Napříkal java plugin nám zajistí standardní tasky potřebné pro vývoj nad Javou (kompilace, clean, javadoc, ...)
 My používáme plugin spring-boot, díky němuž můžeme použít task bootRun.
 
 ### Zprovoznění projektu v IntelliJ IDEA
@@ -188,16 +188,16 @@ Struktura pojektu se řídí standardní Gradlovskou konvencí.
 
 ## Spring
 
-Spring je Javovský framework pro tvorbu Enterprise (rozumějme rozsáhlé) aplikací.
+Spring je Javovský framework pro tvorbu Enterprise (rozumějme rozsáhlých) aplikací.
 
 Proč framework?
 * Nemusíme znovu objevovat kolo a můžeme se soustředit na unikátnost naší aplikace.
-* Framework se stará o spoustu věcí za nás. (Secuity, DI)
+* Framework se stará o spoustu věcí za nás. (Security, DI)
 * Framework je vyvíjen komunitou, vývoj vlastního frameworku je velmi nákladný.
 
 ### Spring Boot
-Konfigurace Java apikací je relativně náročná. Starší projekty si zpravidla s sebou nesou různé konfigurační XML soubory. 
-Moderní způsob konfigurace je pomocí anotovaných tříd. Konfigurace je přesto zůstává složitá. Proto vznikl Spring boot.
+Konfigurace Java aplikací je relativně náročná. Starší projekty si zpravidla s sebou nesou různé konfigurační XML soubory. 
+Moderní způsob konfigurace je pomocí anotovaných tříd. Konfigurace přesto zůstává složitá. Proto vznikl Spring boot.
 Jedná se sadu nástrojů (například anotací), která nám dovolí postavit samostatně běžící aplikaci s minimální konfigurací.
 
 Proč Spring Boot?
