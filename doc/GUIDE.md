@@ -223,7 +223,7 @@ Proč Spring Boot?
 #### Repozitáře
 
 
-### Java 8 streams:
+## Java 8 streams
 
 Task: We want to filter lines from List<String> that does not match our regular expression and add prefix to remaining ones. Please note that u can "iterate" over stream only once, which is not our case, because we are creating stream from List<String> instead of directly using Stream<String>.
 
@@ -249,4 +249,16 @@ HOW TO NOT (coz in case of exception thrown in filter/map/etc. body we will not 
         .map(item -> "ez: " + item)
         .collect(Collectors.toList());
     }
-    
+Java <8
+
+    private List<String> filterLinesFromList(List<String> list) {
+        List<String> result = new ArrayList<>();
+        for (String item : list) {
+            if (item.matches("\\s+database+\\s")) {
+                result.add("ez: " + item);
+            }
+        }
+        return result;
+    }
+
+
