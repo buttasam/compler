@@ -221,3 +221,32 @@ Proč Spring Boot?
 #### ORM
 #### Entity
 #### Repozitáře
+
+
+### Java 8 streams:
+
+Task: We want to filter lines from List<String> that does not match our regular expression and add prefix to remaining ones. Please note that u can "iterate" over stream only once, which is not our case, because we are creating stream from List<String> instead of directly using Stream<String>.
+
+HOW TO DO IT:
+
+    private List<String> filterLinesFromList(List<String> list) {
+        return list.stream().filter(this::filterImplementation).map(this::addPrefix).collect(Collectors.toList());
+    }
+
+    private boolean filterImplementation(String item) {
+        return item.matches("\\s+database\\s+");
+    }
+
+    private String addPrefix(String item) {
+        return "ez: " + item;
+    }
+
+HOW TO NOT (coz in case of exception thrown in filter/map/etc. body we will not know where it is)
+
+    private List<String> filterLinesFromList(List<String> list) {
+        return list.stream()
+        .filter(item -> item.matches("\\s+database\\s+"))
+        .map(item -> "ez: " + item)
+        .collect(Collectors.toList());
+    }
+    
