@@ -1,4 +1,3 @@
 include 'manager'
-include 'finder'
 include 'provider'
 include 'loader'

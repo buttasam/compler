@@ -1,6 +1,6 @@
-package cvut.fit.service;
+package buttasam.service;
 
-import cvut.fit.logic.service.TimeService;
+import buttasam.logic.service.TimeService;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.junit.runner.RunWith;

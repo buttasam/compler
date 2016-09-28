@@ -1,4 +1,4 @@
-package cvut.fit.logic;
+package buttasam.logic;
 
 public class ProviderObject {
 

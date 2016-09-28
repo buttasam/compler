@@ -1,6 +1,6 @@
-package cvut.fit.logic.manager;
+package buttasam.logic.manager;
 
-import cvut.fit.logic.service.TimeService;
+import buttasam.logic.service.TimeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;

@@ -1,8 +1,8 @@
-package cvut.fit.logic.service;
+package buttasam.logic.service;
 
-import cvut.fit.logic.ProviderObject;
-import cvut.fit.logic.ProviderService;
-import cvut.fit.logic.manager.ManagerCron;
+import buttasam.logic.ProviderService;
+import buttasam.logic.manager.ManagerCron;
+import buttasam.logic.ProviderObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
