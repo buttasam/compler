@@ -249,7 +249,11 @@ HOW TO NOT (coz in case of exception thrown in filter/map/etc. body we will not 
         .map(item -> "ez: " + item)
         .collect(Collectors.toList());
     }
-Java <8
+
+_NOTE: Obě možnosti jsou správné. Lokalizace chyby je dobrý argument, ale já radši upřednostním jednodušší a hezčí zápis. 
+Navíc filozofie anonymních funkcní (lambda výrazů) je v tom, že pokud ji potřebuju použít pouze na jednom místě, nemusím ji definovat nikde externě. (Sam)_
+
+Java < 8
 
     private List<String> filterLinesFromList(List<String> list) {
         List<String> result = new ArrayList<>();
